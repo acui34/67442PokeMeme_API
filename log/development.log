@@ -1,0 +1,218 @@
+Started GET "/" for ::1 at 2019-10-20 22:05:00 -0400
+  [1m[35m (20.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chelsea/.rvm/gems/ruby-2.4.1/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chelsea/.rvm/gems/ruby-2.4.1/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb (3.3ms)
+Completed 200 OK in 18ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stations" for ::1 at 2019-10-20 22:05:04 -0400
+Processing by StationsController#index as HTML
+  [1m[36mStation Load (0.4ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+[active_model_serializers]   [1m[36mMeme Load (0.4ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 1]]
+[active_model_serializers] No serializer found for resource: #<Meme id: 1, station_id: 1, user_id: 1, post_time: "2019-10-20 04:00:00", e1_like: 0, e2_like: 0, e3_like: 0, e4_like: 0, image_url: "www.meme1.com", created_at: "2019-10-21 01:16:48", updated_at: "2019-10-21 01:16:48">
+[active_model_serializers]   [1m[36mMeme Load (0.3ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 2]]
+[active_model_serializers]   [1m[36mMeme Load (0.3ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 3]]
+[active_model_serializers] No serializer found for resource: #<Meme id: 4, station_id: 3, user_id: 3, post_time: "2019-10-20 04:00:00", e1_like: 0, e2_like: 0, e3_like: 0, e4_like: 0, image_url: "www.meme4.com", created_at: "2019-10-21 01:16:48", updated_at: "2019-10-21 01:16:48">
+[active_model_serializers] No serializer found for resource: #<Meme id: 1, station_id: 1, user_id: 1, post_time: "2019-10-20 04:00:00", e1_like: 0, e2_like: 0, e3_like: 0, e4_like: 0, image_url: "www.meme1.com", created_at: "2019-10-21 01:16:48", updated_at: "2019-10-21 01:16:48">
+[active_model_serializers] No serializer found for resource: #<Meme id: 4, station_id: 3, user_id: 3, post_time: "2019-10-20 04:00:00", e1_like: 0, e2_like: 0, e3_like: 0, e4_like: 0, image_url: "www.meme4.com", created_at: "2019-10-21 01:16:48", updated_at: "2019-10-21 01:16:48">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (61.23ms)
+Completed 200 OK in 124ms (Views: 100.7ms | ActiveRecord: 15.8ms)
+
+
+Started GET "/stations/1" for ::1 at 2019-10-20 22:05:10 -0400
+Processing by StationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStation Load (0.5ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.2ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 1]]
+[active_model_serializers] No serializer found for resource: #<Meme id: 1, station_id: 1, user_id: 1, post_time: "2019-10-20 04:00:00", e1_like: 0, e2_like: 0, e3_like: 0, e4_like: 0, image_url: "www.meme1.com", created_at: "2019-10-21 01:16:48", updated_at: "2019-10-21 01:16:48">
+[active_model_serializers] Rendered StationSerializer with ActiveModelSerializers::Adapter::Attributes (4.02ms)
+Completed 200 OK in 14ms (Views: 4.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/stations/1" for ::1 at 2019-10-20 22:14:31 -0400
+  [1m[35m (20.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/stations/1"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/v1.stations/1" for ::1 at 2019-10-20 22:14:36 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/v1.stations/1"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/v1/stations/1" for ::1 at 2019-10-20 22:14:39 -0400
+  
+ActionController::RoutingError (uninitialized constant Api):
+  
+activesupport (5.1.7) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.7) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.7) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.7) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.7) lib/active_support/inflector/methods.rb:267:in `constantize'
+actionpack (5.1.7) lib/action_dispatch/http/request.rb:85:in `controller_class_for'
+actionpack (5.1.7) lib/action_dispatch/http/request.rb:78:in `controller_class'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:43:in `controller'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:29:in `serve'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:844:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.7) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.7) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/v1/stations/1" for ::1 at 2019-10-20 22:15:04 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (undefined method `protect_from_forgery' for Api::V1::ApplicationController:Class):
+  
+app/controllers/api/v1/application_controller.rb:3:in `<class:ApplicationController>'
+app/controllers/api/v1/application_controller.rb:2:in `<module:V1>'
+app/controllers/api/v1/application_controller.rb:1:in `<top (required)>'
+app/controllers/api/v1/stations_controller.rb:2:in `<module:V1>'
+app/controllers/api/v1/stations_controller.rb:1:in `<top (required)>'
+Started GET "/api/v1/stations" for ::1 at 2019-10-20 22:15:16 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/stations"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/v1/stations" for ::1 at 2019-10-20 22:17:20 -0400
+  
+ActionController::RoutingError (undefined method `protect_from_forgery' for Api::V1::ApplicationController:Class):
+  
+app/controllers/api/v1/application_controller.rb:3:in `<class:ApplicationController>'
+app/controllers/api/v1/application_controller.rb:2:in `<module:V1>'
+app/controllers/api/v1/application_controller.rb:1:in `<top (required)>'
+app/controllers/api/v1/stations_controller.rb:2:in `<module:V1>'
+app/controllers/api/v1/stations_controller.rb:1:in `<top (required)>'
+Started GET "/v1/stations" for ::1 at 2019-10-20 22:18:24 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::StationsController#index as HTML
+  [1m[36mStation Load (0.6ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+No serializer found for resource: #<Station id: 1, name: "iNoodle", longitude: 40.4433813, latitude: -79.9455855, introduction: "iNoodle aaa bbb cccccc ddd", created_at: "2019-10-21 01:16:48", updated_at: "2019-10-21 01:16:48">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Station::ActiveRecord_Relation (0.64ms)
+Completed 200 OK in 41ms (Views: 25.7ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/v1/memes?station_id=1" for ::1 at 2019-10-20 22:18:39 -0400
+Processing by Api::V1::MemesController#index as HTML
+  Parameters: {"station_id"=>"1"}
+  [1m[36mMeme Load (0.8ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 ORDER BY "memes"."post_time" DESC[0m  [["station_id", 1]]
+No serializer found for resource: #<Meme id: 1, station_id: 1, user_id: 1, post_time: "2019-10-20 04:00:00", e1_like: 0, e2_like: 0, e3_like: 0, e4_like: 0, image_url: "www.meme1.com", created_at: "2019-10-21 01:16:48", updated_at: "2019-10-21 01:16:48">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Meme::ActiveRecord_Relation (0.68ms)
+Completed 200 OK in 47ms (Views: 18.4ms | ActiveRecord: 12.2ms)
+
+

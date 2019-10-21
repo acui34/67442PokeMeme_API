@@ -1,0 +1,1187 @@
+  [1m[35m (148.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "pokeMeme_api_test"[0m
+  [1m[35m (472.0ms)[0m  [1m[35mCREATE DATABASE "pokeMeme_api_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (24.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "memes" CASCADE[0m
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "memes" ("id" bigserial primary key, "station_id" bigint, "user_id" bigint, "post_time" timestamp, "e1_like" integer DEFAULT 0, "e2_like" integer DEFAULT 0, "e3_like" integer DEFAULT 0, "e4_like" integer DEFAULT 0, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE  INDEX  "index_memes_on_station_id" ON "memes"  ("station_id")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_memes_on_user_id" ON "memes"  ("user_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "stations" CASCADE[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "stations" ("id" bigserial primary key, "name" character varying, "longitude" float, "latitude" float, "introduction" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "fb_access_token" character varying, "first_name" character varying, "last_name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (31.0ms)[0m  [1m[35mALTER TABLE "memes" ADD CONSTRAINT "fk_rails_fe0c1d3c1a"
+FOREIGN KEY ("station_id")
+  REFERENCES "stations" ("id")
+[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "memes" ADD CONSTRAINT "fk_rails_0dd3229ca9"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20191020210038)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20191020205309),
+(20191020205517),
+(20191020205056);
+
+[0m
+  [1m[35m (41.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2019-10-20 23:50:12.266376"], ["updated_at", "2019-10-20 23:50:12.266376"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (42.9ms)[0m  [1m[35mALTER TABLE "stations" DISABLE TRIGGER ALL;ALTER TABLE "memes" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (1.2ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.9ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', '2019-10-20 23:52:27.524643', '2019-10-20 23:52:27.524643', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', '2019-10-20 23:52:27.524643', '2019-10-20 23:52:27.524643', 298486374)[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "stations"[0m
+  [1m[36mFixture Insert (2.4ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at", "id") VALUES ('MyString', 1.5, 1.5, 'MyText', '2019-10-20 23:52:27.584257', '2019-10-20 23:52:27.584257', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at", "id") VALUES ('MyString', 1.5, 1.5, 'MyText', '2019-10-20 23:52:27.584257', '2019-10-20 23:52:27.584257', 298486374)[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "memes"[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO "memes" ("post_time", "e1_like", "e2_like", "e3_like", "e4_like", "image_url", "created_at", "updated_at", "id", "station_id", "user_id") VALUES ('2019-10-20 16:55:17', 1, 1, 1, 1, 'MyString', '2019-10-20 23:52:27.592819', '2019-10-20 23:52:27.592819', 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "memes" ("post_time", "e1_like", "e2_like", "e3_like", "e4_like", "image_url", "created_at", "updated_at", "id", "station_id", "user_id") VALUES ('2019-10-20 16:55:17', 1, 1, 1, 1, 'MyString', '2019-10-20 23:52:27.592819', '2019-10-20 23:52:27.592819', 298486374, 298486374, 298486374)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "stations" ENABLE TRIGGER ALL;ALTER TABLE "memes" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+MemeTest: test_: Meme should belong to station. 
+------------------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+MemeTest: test_: Meme should belong to user. 
+---------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------------
+MemeTest: test_: Meme should require station_id to be set. 
+-----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require post_time to be set. 
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------
+MemeTest: test_: Meme should require user_id to be set. 
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require image_url to be set. 
+----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------------------------------------------
+MemeTest: test_: Within context should verify there is a sort_by_post_time_asc method. 
+---------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "stations" DISABLE TRIGGER ALL;ALTER TABLE "memes" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (40.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', '2019-10-20 23:53:46.309859', '2019-10-20 23:53:46.309859', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', '2019-10-20 23:53:46.309859', '2019-10-20 23:53:46.309859', 298486374)[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "stations"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at", "id") VALUES ('MyString', 1.5, 1.5, 'MyText', '2019-10-20 23:53:46.320594', '2019-10-20 23:53:46.320594', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at", "id") VALUES ('MyString', 1.5, 1.5, 'MyText', '2019-10-20 23:53:46.320594', '2019-10-20 23:53:46.320594', 298486374)[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "memes"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "memes" ("post_time", "e1_like", "e2_like", "e3_like", "e4_like", "image_url", "created_at", "updated_at", "id", "station_id", "user_id") VALUES ('2019-10-20 16:55:17', 1, 1, 1, 1, 'MyString', '2019-10-20 23:53:46.326642', '2019-10-20 23:53:46.326642', 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("post_time", "e1_like", "e2_like", "e3_like", "e4_like", "image_url", "created_at", "updated_at", "id", "station_id", "user_id") VALUES ('2019-10-20 16:55:17', 1, 1, 1, 1, 'MyString', '2019-10-20 23:53:46.326642', '2019-10-20 23:53:46.326642', 298486374, 298486374, 298486374)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "stations" ENABLE TRIGGER ALL;ALTER TABLE "memes" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------
+MemeTest: test_: Meme should require user_id to be set. 
+--------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require image_url to be set. 
+----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require post_time to be set. 
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+MemeTest: test_: Meme should belong to station. 
+------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+MemeTest: test_: Meme should belong to user. 
+---------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------------------------------------------
+MemeTest: test_: Within context should verify there is a sort_by_post_time_asc method. 
+---------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------------
+MemeTest: test_: Meme should require station_id to be set. 
+-----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------
+MemeTest: test_: Meme should require user_id to be set. 
+--------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------------------------------------------
+MemeTest: test_: Within context should verify there is a sort_by_post_time_asc method. 
+---------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+MemeTest: test_: Meme should belong to user. 
+---------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require image_url to be set. 
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+MemeTest: test_: Meme should belong to station. 
+------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require post_time to be set. 
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------------
+MemeTest: test_: Meme should require station_id to be set. 
+-----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require post_time to be set. 
+----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------
+MemeTest: test_: Meme should require user_id to be set. 
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+MemeTest: test_: Meme should belong to station. 
+------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require image_url to be set. 
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+MemeTest: test_: Meme should belong to user. 
+---------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------------
+MemeTest: test_: Meme should require station_id to be set. 
+-----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------------------------------------------
+MemeTest: test_: Within context should verify there is a sort_by_post_time_asc method. 
+---------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+MemeTest: test_: Meme should belong to user. 
+---------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+MemeTest: test_: Meme should belong to station. 
+------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require post_time to be set. 
+----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------------
+MemeTest: test_: Meme should require station_id to be set. 
+-----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------
+MemeTest: test_: Meme should require user_id to be set. 
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require image_url to be set. 
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------------------------------------------
+MemeTest: test_: Within context should verify there is a sort_by_post_time_asc method. 
+---------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (41.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require image_url to be set. 
+----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+MemeTest: test_: Meme should belong to station. 
+------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------
+MemeTest: test_: Meme should require user_id to be set. 
+--------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------------------------------------------
+MemeTest: test_: Within context should verify there is a sort_by_post_time_asc method. 
+---------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+MemeTest: test_: Meme should belong to user. 
+---------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require post_time to be set. 
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------------
+MemeTest: test_: Meme should require station_id to be set. 
+-----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+MemeTest: test_: Meme should belong to station. 
+------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------------------------------------------
+MemeTest: test_: Within context should verify there is a sort_by_post_time_asc method. 
+---------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require post_time to be set. 
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------
+MemeTest: test_: Meme should require user_id to be set. 
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------------
+MemeTest: test_: Meme should require station_id to be set. 
+-----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+MemeTest: test_: Meme should belong to user. 
+---------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require image_url to be set. 
+----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+MemeTest: test_: Meme should belong to user. 
+---------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------------------------------------------
+MemeTest: test_: Within context should verify there is a sort_by_post_time_asc method. 
+---------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (39.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken111"], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken111"], ["first_name", "Roxanne"], ["last_name", "Zhang"], ["created_at", "2019-10-21 00:30:32.224480"], ["updated_at", "2019-10-21 00:30:32.224480"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken222"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken222"], ["first_name", "Cindy"], ["last_name", "Liu"], ["created_at", "2019-10-21 00:30:32.229740"], ["updated_at", "2019-10-21 00:30:32.229740"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken333"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken333"], ["first_name", "Chelsea"], ["last_name", "Cui"], ["created_at", "2019-10-21 00:30:32.232424"], ["updated_at", "2019-10-21 00:30:32.232424"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "iNoodle"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "iNoodle aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:30:32.242676"], ["updated_at", "2019-10-21 00:30:32.242676"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Underground"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "underground aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:30:32.244717"], ["updated_at", "2019-10-21 00:30:32.244717"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Hunt"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "Hunt aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:30:32.246305"], ["updated_at", "2019-10-21 00:30:32.246305"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (45.8ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["station_id", 980190963], ["user_id", 980190963], ["post_time", "2019-10-20 04:00:00"], ["e4_like", 1], ["image_url", "www.meme1.com"], ["created_at", "2019-10-21 00:30:32.256572"], ["updated_at", "2019-10-21 00:30:32.256572"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["station_id", 980190963], ["user_id", 980190965], ["post_time", "2019-10-10 04:00:00"], ["e1_like", 1], ["e2_like", 1], ["e4_like", 1], ["image_url", "www.meme2.com"], ["created_at", "2019-10-21 00:30:32.305678"], ["updated_at", "2019-10-21 00:30:32.305678"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["station_id", 980190963], ["user_id", 980190964], ["post_time", "2019-09-30 04:00:00"], ["e1_like", 3], ["e2_like", 5], ["e4_like", 1], ["image_url", "www.meme3.com"], ["created_at", "2019-10-21 00:30:32.308445"], ["updated_at", "2019-10-21 00:30:32.308445"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["station_id", 980190965], ["user_id", 980190965], ["post_time", "2019-10-20 04:00:00"], ["e4_like", 1], ["image_url", "www.meme4.com"], ["created_at", "2019-10-21 00:30:32.311010"], ["updated_at", "2019-10-21 00:30:32.311010"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 980190963]]
+  [1m[36mMeme Load (1.4ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 ORDER BY "memes"."post_time" ASC[0m  [["station_id", 1]]
+  [1m[35mSQL (42.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190963]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------
+MemeTest: test_: Meme should require user_id to be set. 
+--------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require post_time to be set. 
+----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------------
+MemeTest: test_: Meme should require station_id to be set. 
+-----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+MemeTest: test_: Meme should belong to station. 
+------------------------------------------------
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require image_url to be set. 
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+MemeTest: test_: Meme should belong to user. 
+---------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------
+MemeTest: test_: Meme should require user_id to be set. 
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------------------------------------------
+MemeTest: test_: Within context should verify there is a sort_by_post_time_asc method. 
+---------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken111"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken111"], ["first_name", "Roxanne"], ["last_name", "Zhang"], ["created_at", "2019-10-21 00:31:33.733202"], ["updated_at", "2019-10-21 00:31:33.733202"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken222"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken222"], ["first_name", "Cindy"], ["last_name", "Liu"], ["created_at", "2019-10-21 00:31:33.736628"], ["updated_at", "2019-10-21 00:31:33.736628"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken333"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken333"], ["first_name", "Chelsea"], ["last_name", "Cui"], ["created_at", "2019-10-21 00:31:33.738797"], ["updated_at", "2019-10-21 00:31:33.738797"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "iNoodle"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "iNoodle aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:31:33.747847"], ["updated_at", "2019-10-21 00:31:33.747847"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Underground"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "underground aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:31:33.749902"], ["updated_at", "2019-10-21 00:31:33.749902"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Hunt"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "Hunt aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:31:33.751460"], ["updated_at", "2019-10-21 00:31:33.751460"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["station_id", 980190966], ["user_id", 980190966], ["post_time", "2019-10-20 04:00:00"], ["e4_like", 1], ["image_url", "www.meme1.com"], ["created_at", "2019-10-21 00:31:33.754571"], ["updated_at", "2019-10-21 00:31:33.754571"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["station_id", 980190966], ["user_id", 980190968], ["post_time", "2019-10-10 04:00:00"], ["e1_like", 1], ["e2_like", 1], ["e4_like", 1], ["image_url", "www.meme2.com"], ["created_at", "2019-10-21 00:31:33.757727"], ["updated_at", "2019-10-21 00:31:33.757727"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["station_id", 980190966], ["user_id", 980190967], ["post_time", "2019-09-30 04:00:00"], ["e1_like", 3], ["e2_like", 5], ["e4_like", 1], ["image_url", "www.meme3.com"], ["created_at", "2019-10-21 00:31:33.760705"], ["updated_at", "2019-10-21 00:31:33.760705"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["station_id", 980190968], ["user_id", 980190968], ["post_time", "2019-10-20 04:00:00"], ["e4_like", 1], ["image_url", "www.meme4.com"], ["created_at", "2019-10-21 00:31:33.764003"], ["updated_at", "2019-10-21 00:31:33.764003"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 980190966]]
+  [1m[36mMeme Load (0.3ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 ORDER BY "memes"."post_time" ASC[0m  [["station_id", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190967]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190968]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190969]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190970]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190966]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190967]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190968]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190966]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190967]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190968]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+MemeTest: test_: Meme should belong to station. 
+------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require post_time to be set. 
+----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------------
+MemeTest: test_: Meme should require station_id to be set. 
+-----------------------------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require image_url to be set. 
+----------------------------------------------------------
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+MemeTest: test_: Meme should belong to user. 
+---------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------------------------------------------
+MemeTest: test_: Within context should verify there is a sort_by_post_time_asc method. 
+---------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken111"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken111"], ["first_name", "Roxanne"], ["last_name", "Zhang"], ["created_at", "2019-10-21 00:32:00.429323"], ["updated_at", "2019-10-21 00:32:00.429323"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken222"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken222"], ["first_name", "Cindy"], ["last_name", "Liu"], ["created_at", "2019-10-21 00:32:00.432266"], ["updated_at", "2019-10-21 00:32:00.432266"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken333"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken333"], ["first_name", "Chelsea"], ["last_name", "Cui"], ["created_at", "2019-10-21 00:32:00.434460"], ["updated_at", "2019-10-21 00:32:00.434460"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "iNoodle"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "iNoodle aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:32:00.444726"], ["updated_at", "2019-10-21 00:32:00.444726"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Underground"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "underground aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:32:00.446699"], ["updated_at", "2019-10-21 00:32:00.446699"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Hunt"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "Hunt aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:32:00.448569"], ["updated_at", "2019-10-21 00:32:00.448569"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["station_id", 980190969], ["user_id", 980190969], ["post_time", "2019-10-20 04:00:00"], ["e4_like", 1], ["image_url", "www.meme1.com"], ["created_at", "2019-10-21 00:32:00.455045"], ["updated_at", "2019-10-21 00:32:00.455045"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["station_id", 980190969], ["user_id", 980190971], ["post_time", "2019-10-10 04:00:00"], ["e1_like", 1], ["e2_like", 1], ["e4_like", 1], ["image_url", "www.meme2.com"], ["created_at", "2019-10-21 00:32:00.458311"], ["updated_at", "2019-10-21 00:32:00.458311"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["station_id", 980190969], ["user_id", 980190970], ["post_time", "2019-09-30 04:00:00"], ["e1_like", 3], ["e2_like", 5], ["e4_like", 1], ["image_url", "www.meme3.com"], ["created_at", "2019-10-21 00:32:00.461174"], ["updated_at", "2019-10-21 00:32:00.461174"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["station_id", 980190971], ["user_id", 980190971], ["post_time", "2019-10-20 04:00:00"], ["e4_like", 1], ["image_url", "www.meme4.com"], ["created_at", "2019-10-21 00:32:00.463609"], ["updated_at", "2019-10-21 00:32:00.463609"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 980190969]]
+  [1m[36mMeme Load (0.2ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 ORDER BY "memes"."post_time" ASC[0m  [["station_id", 980190969]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190971]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190972]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190973]]
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190974]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190969]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190970]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190971]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190969]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190970]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190971]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+MemeTest: test_: Meme should belong to station. 
+------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require image_url to be set. 
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------------
+MemeTest: test_: Meme should require station_id to be set. 
+-----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require post_time to be set. 
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------
+MemeTest: test_: Meme should require user_id to be set. 
+--------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------------------------------------------
+MemeTest: test_: Within context should verify there is a sort_by_post_time_asc method. 
+---------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken111"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken111"], ["first_name", "Roxanne"], ["last_name", "Zhang"], ["created_at", "2019-10-21 00:32:23.750947"], ["updated_at", "2019-10-21 00:32:23.750947"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken222"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken222"], ["first_name", "Cindy"], ["last_name", "Liu"], ["created_at", "2019-10-21 00:32:23.754066"], ["updated_at", "2019-10-21 00:32:23.754066"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken333"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken333"], ["first_name", "Chelsea"], ["last_name", "Cui"], ["created_at", "2019-10-21 00:32:23.756877"], ["updated_at", "2019-10-21 00:32:23.756877"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "iNoodle"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "iNoodle aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:32:23.767353"], ["updated_at", "2019-10-21 00:32:23.767353"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Underground"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "underground aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:32:23.772162"], ["updated_at", "2019-10-21 00:32:23.772162"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Hunt"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "Hunt aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:32:23.774056"], ["updated_at", "2019-10-21 00:32:23.774056"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["station_id", 980190972], ["user_id", 980190972], ["post_time", "2019-10-20 04:00:00"], ["e4_like", 1], ["image_url", "www.meme1.com"], ["created_at", "2019-10-21 00:32:23.793624"], ["updated_at", "2019-10-21 00:32:23.793624"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["station_id", 980190972], ["user_id", 980190974], ["post_time", "2019-10-10 04:00:00"], ["e1_like", 1], ["e2_like", 1], ["e4_like", 1], ["image_url", "www.meme2.com"], ["created_at", "2019-10-21 00:32:23.796802"], ["updated_at", "2019-10-21 00:32:23.796802"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["station_id", 980190972], ["user_id", 980190973], ["post_time", "2019-09-30 04:00:00"], ["e1_like", 3], ["e2_like", 5], ["e4_like", 1], ["image_url", "www.meme3.com"], ["created_at", "2019-10-21 00:32:23.799640"], ["updated_at", "2019-10-21 00:32:23.799640"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["station_id", 980190974], ["user_id", 980190974], ["post_time", "2019-10-20 04:00:00"], ["e4_like", 1], ["image_url", "www.meme4.com"], ["created_at", "2019-10-21 00:32:23.802278"], ["updated_at", "2019-10-21 00:32:23.802278"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 980190972]]
+  [1m[36mMeme Load (0.2ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 ORDER BY "memes"."post_time" ASC[0m  [["station_id", 980190972]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190975]]
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190976]]
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190977]]
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190978]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190972]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190973]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190974]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190972]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190973]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190974]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------------------------------------
+MemeTest: test_: Within context should verify there is a sort_by_post_time_desc method. 
+----------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken111"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken111"], ["first_name", "Roxanne"], ["last_name", "Zhang"], ["created_at", "2019-10-21 00:32:23.813729"], ["updated_at", "2019-10-21 00:32:23.813729"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken222"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken222"], ["first_name", "Cindy"], ["last_name", "Liu"], ["created_at", "2019-10-21 00:32:23.816350"], ["updated_at", "2019-10-21 00:32:23.816350"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken333"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken333"], ["first_name", "Chelsea"], ["last_name", "Cui"], ["created_at", "2019-10-21 00:32:23.819736"], ["updated_at", "2019-10-21 00:32:23.819736"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "iNoodle"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "iNoodle aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:32:23.821870"], ["updated_at", "2019-10-21 00:32:23.821870"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Underground"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "underground aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:32:23.823764"], ["updated_at", "2019-10-21 00:32:23.823764"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Hunt"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "Hunt aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:32:23.825414"], ["updated_at", "2019-10-21 00:32:23.825414"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["station_id", 980190975], ["user_id", 980190975], ["post_time", "2019-10-20 04:00:00"], ["e4_like", 1], ["image_url", "www.meme1.com"], ["created_at", "2019-10-21 00:32:23.827824"], ["updated_at", "2019-10-21 00:32:23.827824"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["station_id", 980190975], ["user_id", 980190977], ["post_time", "2019-10-10 04:00:00"], ["e1_like", 1], ["e2_like", 1], ["e4_like", 1], ["image_url", "www.meme2.com"], ["created_at", "2019-10-21 00:32:23.830910"], ["updated_at", "2019-10-21 00:32:23.830910"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["station_id", 980190975], ["user_id", 980190976], ["post_time", "2019-09-30 04:00:00"], ["e1_like", 3], ["e2_like", 5], ["e4_like", 1], ["image_url", "www.meme3.com"], ["created_at", "2019-10-21 00:32:23.834081"], ["updated_at", "2019-10-21 00:32:23.834081"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["station_id", 980190977], ["user_id", 980190977], ["post_time", "2019-10-20 04:00:00"], ["e4_like", 1], ["image_url", "www.meme4.com"], ["created_at", "2019-10-21 00:32:23.836901"], ["updated_at", "2019-10-21 00:32:23.836901"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 980190975]]
+  [1m[36mMeme Load (0.2ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 ORDER BY "memes"."post_time" DESC[0m  [["station_id", 980190975]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190979]]
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190980]]
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190981]]
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190982]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190975]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190976]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190977]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190975]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190976]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190977]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+MemeTest: test_: Meme should belong to user. 
+---------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------------
+MemeTest: test_: Meme should require station_id to be set. 
+-----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require image_url to be set. 
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+MemeTest: test_: Meme should belong to station. 
+------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------
+MemeTest: test_: Meme should require user_id to be set. 
+--------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require post_time to be set. 
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require post_time to be set. 
+----------------------------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------------------------------------------
+MemeTest: test_: Within context should verify there is a sort_by_post_time_asc method. 
+---------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken111"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken111"], ["first_name", "Roxanne"], ["last_name", "Zhang"], ["created_at", "2019-10-21 00:35:16.616961"], ["updated_at", "2019-10-21 00:35:16.616961"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken222"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken222"], ["first_name", "Cindy"], ["last_name", "Liu"], ["created_at", "2019-10-21 00:35:16.621463"], ["updated_at", "2019-10-21 00:35:16.621463"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken333"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken333"], ["first_name", "Chelsea"], ["last_name", "Cui"], ["created_at", "2019-10-21 00:35:16.623451"], ["updated_at", "2019-10-21 00:35:16.623451"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "iNoodle"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "iNoodle aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:35:16.632845"], ["updated_at", "2019-10-21 00:35:16.632845"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Underground"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "underground aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:35:16.634831"], ["updated_at", "2019-10-21 00:35:16.634831"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Hunt"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "Hunt aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:35:16.636432"], ["updated_at", "2019-10-21 00:35:16.636432"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["station_id", 980190978], ["user_id", 980190978], ["post_time", "2019-10-20 04:00:00"], ["e4_like", 1], ["image_url", "www.meme1.com"], ["created_at", "2019-10-21 00:35:16.639483"], ["updated_at", "2019-10-21 00:35:16.639483"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["station_id", 980190978], ["user_id", 980190980], ["post_time", "2019-10-10 04:00:00"], ["e1_like", 1], ["e2_like", 1], ["e4_like", 1], ["image_url", "www.meme2.com"], ["created_at", "2019-10-21 00:35:16.642701"], ["updated_at", "2019-10-21 00:35:16.642701"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["station_id", 980190978], ["user_id", 980190979], ["post_time", "2019-09-30 04:00:00"], ["e1_like", 3], ["e2_like", 5], ["e4_like", 1], ["image_url", "www.meme3.com"], ["created_at", "2019-10-21 00:35:16.645278"], ["updated_at", "2019-10-21 00:35:16.645278"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["station_id", 980190980], ["user_id", 980190980], ["post_time", "2019-10-20 04:00:00"], ["e4_like", 1], ["image_url", "www.meme4.com"], ["created_at", "2019-10-21 00:35:16.647926"], ["updated_at", "2019-10-21 00:35:16.647926"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 980190978]]
+  [1m[36mMeme Load (0.2ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 ORDER BY "memes"."post_time" ASC[0m  [["station_id", 980190978]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190983]]
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190984]]
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190985]]
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190986]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190978]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190979]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190980]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190978]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190979]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190980]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------------------------------------
+MemeTest: test_: Within context should verify there is a sort_by_post_time_desc method. 
+----------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken111"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken111"], ["first_name", "Roxanne"], ["last_name", "Zhang"], ["created_at", "2019-10-21 00:35:16.659726"], ["updated_at", "2019-10-21 00:35:16.659726"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken222"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken222"], ["first_name", "Cindy"], ["last_name", "Liu"], ["created_at", "2019-10-21 00:35:16.661898"], ["updated_at", "2019-10-21 00:35:16.661898"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken333"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken333"], ["first_name", "Chelsea"], ["last_name", "Cui"], ["created_at", "2019-10-21 00:35:16.665296"], ["updated_at", "2019-10-21 00:35:16.665296"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "iNoodle"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "iNoodle aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:35:16.667405"], ["updated_at", "2019-10-21 00:35:16.667405"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Underground"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "underground aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:35:16.669065"], ["updated_at", "2019-10-21 00:35:16.669065"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Hunt"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "Hunt aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:35:16.670753"], ["updated_at", "2019-10-21 00:35:16.670753"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["station_id", 980190981], ["user_id", 980190981], ["post_time", "2019-10-20 04:00:00"], ["e4_like", 1], ["image_url", "www.meme1.com"], ["created_at", "2019-10-21 00:35:16.674146"], ["updated_at", "2019-10-21 00:35:16.674146"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["station_id", 980190981], ["user_id", 980190983], ["post_time", "2019-10-10 04:00:00"], ["e1_like", 1], ["e2_like", 1], ["e4_like", 1], ["image_url", "www.meme2.com"], ["created_at", "2019-10-21 00:35:16.677076"], ["updated_at", "2019-10-21 00:35:16.677076"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["station_id", 980190981], ["user_id", 980190982], ["post_time", "2019-09-30 04:00:00"], ["e1_like", 3], ["e2_like", 5], ["e4_like", 1], ["image_url", "www.meme3.com"], ["created_at", "2019-10-21 00:35:16.679998"], ["updated_at", "2019-10-21 00:35:16.679998"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["station_id", 980190983], ["user_id", 980190983], ["post_time", "2019-10-20 04:00:00"], ["e4_like", 1], ["image_url", "www.meme4.com"], ["created_at", "2019-10-21 00:35:16.683017"], ["updated_at", "2019-10-21 00:35:16.683017"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 980190981]]
+  [1m[36mMeme Load (0.2ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 ORDER BY "memes"."post_time" DESC[0m  [["station_id", 980190981]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190987]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190988]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190989]]
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190990]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190981]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190982]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190983]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190981]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190982]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190983]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+MemeTest: test_: Meme should belong to user. 
+---------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+MemeTest: test_: Meme should belong to station. 
+------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------
+MemeTest: test_: Meme should require user_id to be set. 
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require image_url to be set. 
+----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------------------------------------------------
+MemeTest: test_: Within context should verify there is a sort_by_total_likes method. 
+-------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken111"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken111"], ["first_name", "Roxanne"], ["last_name", "Zhang"], ["created_at", "2019-10-21 00:35:16.705049"], ["updated_at", "2019-10-21 00:35:16.705049"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken222"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken222"], ["first_name", "Cindy"], ["last_name", "Liu"], ["created_at", "2019-10-21 00:35:16.707755"], ["updated_at", "2019-10-21 00:35:16.707755"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken333"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken333"], ["first_name", "Chelsea"], ["last_name", "Cui"], ["created_at", "2019-10-21 00:35:16.712511"], ["updated_at", "2019-10-21 00:35:16.712511"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "iNoodle"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "iNoodle aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:35:16.714730"], ["updated_at", "2019-10-21 00:35:16.714730"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Underground"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "underground aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:35:16.716460"], ["updated_at", "2019-10-21 00:35:16.716460"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Hunt"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "Hunt aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:35:16.719157"], ["updated_at", "2019-10-21 00:35:16.719157"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["station_id", 980190984], ["user_id", 980190984], ["post_time", "2019-10-20 04:00:00"], ["e4_like", 1], ["image_url", "www.meme1.com"], ["created_at", "2019-10-21 00:35:16.722449"], ["updated_at", "2019-10-21 00:35:16.722449"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["station_id", 980190984], ["user_id", 980190986], ["post_time", "2019-10-10 04:00:00"], ["e1_like", 1], ["e2_like", 1], ["e4_like", 1], ["image_url", "www.meme2.com"], ["created_at", "2019-10-21 00:35:16.725498"], ["updated_at", "2019-10-21 00:35:16.725498"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["station_id", 980190984], ["user_id", 980190985], ["post_time", "2019-09-30 04:00:00"], ["e1_like", 3], ["e2_like", 5], ["e4_like", 1], ["image_url", "www.meme3.com"], ["created_at", "2019-10-21 00:35:16.728377"], ["updated_at", "2019-10-21 00:35:16.728377"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["station_id", 980190986], ["user_id", 980190986], ["post_time", "2019-10-20 04:00:00"], ["e4_like", 1], ["image_url", "www.meme4.com"], ["created_at", "2019-10-21 00:35:16.731939"], ["updated_at", "2019-10-21 00:35:16.731939"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 980190984]]
+  [1m[36mMeme Load (0.9ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 ORDER BY e1_like + e2_like + e3_like + e4_like[0m  [["station_id", 980190984]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190991]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190992]]
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190993]]
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190994]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190984]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190985]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190986]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190984]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190985]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190986]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------------
+MemeTest: test_: Meme should require station_id to be set. 
+-----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+MemeTest: test_: Meme should belong to user. 
+---------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require post_time to be set. 
+----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------------------------------------
+MemeTest: test_: Within context should verify there is a sort_by_post_time_desc method. 
+----------------------------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken111"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken111"], ["first_name", "Roxanne"], ["last_name", "Zhang"], ["created_at", "2019-10-21 00:35:43.919546"], ["updated_at", "2019-10-21 00:35:43.919546"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken222"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken222"], ["first_name", "Cindy"], ["last_name", "Liu"], ["created_at", "2019-10-21 00:35:43.923470"], ["updated_at", "2019-10-21 00:35:43.923470"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken333"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken333"], ["first_name", "Chelsea"], ["last_name", "Cui"], ["created_at", "2019-10-21 00:35:43.926302"], ["updated_at", "2019-10-21 00:35:43.926302"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "iNoodle"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "iNoodle aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:35:43.934694"], ["updated_at", "2019-10-21 00:35:43.934694"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Underground"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "underground aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:35:43.937488"], ["updated_at", "2019-10-21 00:35:43.937488"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Hunt"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "Hunt aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:35:43.939422"], ["updated_at", "2019-10-21 00:35:43.939422"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["station_id", 980190987], ["user_id", 980190987], ["post_time", "2019-10-20 04:00:00"], ["e4_like", 1], ["image_url", "www.meme1.com"], ["created_at", "2019-10-21 00:35:43.942985"], ["updated_at", "2019-10-21 00:35:43.942985"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["station_id", 980190987], ["user_id", 980190989], ["post_time", "2019-10-10 04:00:00"], ["e1_like", 1], ["e2_like", 1], ["e4_like", 1], ["image_url", "www.meme2.com"], ["created_at", "2019-10-21 00:35:43.946286"], ["updated_at", "2019-10-21 00:35:43.946286"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["station_id", 980190987], ["user_id", 980190988], ["post_time", "2019-09-30 04:00:00"], ["e1_like", 3], ["e2_like", 5], ["e4_like", 1], ["image_url", "www.meme3.com"], ["created_at", "2019-10-21 00:35:43.949068"], ["updated_at", "2019-10-21 00:35:43.949068"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["station_id", 980190989], ["user_id", 980190989], ["post_time", "2019-10-20 04:00:00"], ["e4_like", 1], ["image_url", "www.meme4.com"], ["created_at", "2019-10-21 00:35:43.951938"], ["updated_at", "2019-10-21 00:35:43.951938"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 980190987]]
+  [1m[36mMeme Load (0.2ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 ORDER BY "memes"."post_time" DESC[0m  [["station_id", 980190987]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190995]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190996]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190997]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190998]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190987]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190988]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190989]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190987]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190988]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190989]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------------------------------------------
+MemeTest: test_: Within context should verify there is a sort_by_post_time_asc method. 
+---------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken111"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken111"], ["first_name", "Roxanne"], ["last_name", "Zhang"], ["created_at", "2019-10-21 00:35:43.963946"], ["updated_at", "2019-10-21 00:35:43.963946"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken222"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken222"], ["first_name", "Cindy"], ["last_name", "Liu"], ["created_at", "2019-10-21 00:35:43.966073"], ["updated_at", "2019-10-21 00:35:43.966073"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken333"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken333"], ["first_name", "Chelsea"], ["last_name", "Cui"], ["created_at", "2019-10-21 00:35:43.968257"], ["updated_at", "2019-10-21 00:35:43.968257"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "iNoodle"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "iNoodle aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:35:43.970377"], ["updated_at", "2019-10-21 00:35:43.970377"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Underground"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "underground aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:35:43.972000"], ["updated_at", "2019-10-21 00:35:43.972000"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Hunt"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "Hunt aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:35:43.974849"], ["updated_at", "2019-10-21 00:35:43.974849"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["station_id", 980190990], ["user_id", 980190990], ["post_time", "2019-10-20 04:00:00"], ["e4_like", 1], ["image_url", "www.meme1.com"], ["created_at", "2019-10-21 00:35:43.978511"], ["updated_at", "2019-10-21 00:35:43.978511"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["station_id", 980190990], ["user_id", 980190992], ["post_time", "2019-10-10 04:00:00"], ["e1_like", 1], ["e2_like", 1], ["e4_like", 1], ["image_url", "www.meme2.com"], ["created_at", "2019-10-21 00:35:43.981995"], ["updated_at", "2019-10-21 00:35:43.981995"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["station_id", 980190990], ["user_id", 980190991], ["post_time", "2019-09-30 04:00:00"], ["e1_like", 3], ["e2_like", 5], ["e4_like", 1], ["image_url", "www.meme3.com"], ["created_at", "2019-10-21 00:35:43.985156"], ["updated_at", "2019-10-21 00:35:43.985156"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["station_id", 980190992], ["user_id", 980190992], ["post_time", "2019-10-20 04:00:00"], ["e4_like", 1], ["image_url", "www.meme4.com"], ["created_at", "2019-10-21 00:35:43.988427"], ["updated_at", "2019-10-21 00:35:43.988427"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 980190990]]
+  [1m[36mMeme Load (0.3ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 ORDER BY "memes"."post_time" ASC[0m  [["station_id", 980190990]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980190999]]
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980191000]]
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980191001]]
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980191002]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190990]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190991]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190992]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190990]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190991]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190992]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+MemeTest: test_: Meme should belong to station. 
+------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+MemeTest: test_: Meme should require image_url to be set. 
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------------------------------------------------
+MemeTest: test_: Within context should verify there is a sort_by_total_likes method. 
+-------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken111"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken111"], ["first_name", "Roxanne"], ["last_name", "Zhang"], ["created_at", "2019-10-21 00:35:44.004445"], ["updated_at", "2019-10-21 00:35:44.004445"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken222"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken222"], ["first_name", "Cindy"], ["last_name", "Liu"], ["created_at", "2019-10-21 00:35:44.007389"], ["updated_at", "2019-10-21 00:35:44.007389"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken333"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken333"], ["first_name", "Chelsea"], ["last_name", "Cui"], ["created_at", "2019-10-21 00:35:44.009652"], ["updated_at", "2019-10-21 00:35:44.009652"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "iNoodle"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "iNoodle aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:35:44.012488"], ["updated_at", "2019-10-21 00:35:44.012488"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Underground"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "underground aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:35:44.014767"], ["updated_at", "2019-10-21 00:35:44.014767"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Hunt"], ["longitude", 40.4433813], ["latitude", 79.9455855], ["introduction", "Hunt aaa bbb cccccc ddd"], ["created_at", "2019-10-21 00:35:44.016348"], ["updated_at", "2019-10-21 00:35:44.016348"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["station_id", 980190993], ["user_id", 980190993], ["post_time", "2019-10-20 04:00:00"], ["e4_like", 1], ["image_url", "www.meme1.com"], ["created_at", "2019-10-21 00:35:44.018953"], ["updated_at", "2019-10-21 00:35:44.018953"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["station_id", 980190993], ["user_id", 980190995], ["post_time", "2019-10-10 04:00:00"], ["e1_like", 1], ["e2_like", 1], ["e4_like", 1], ["image_url", "www.meme2.com"], ["created_at", "2019-10-21 00:35:44.022755"], ["updated_at", "2019-10-21 00:35:44.022755"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["station_id", 980190993], ["user_id", 980190994], ["post_time", "2019-09-30 04:00:00"], ["e1_like", 3], ["e2_like", 5], ["e4_like", 1], ["image_url", "www.meme3.com"], ["created_at", "2019-10-21 00:35:44.026345"], ["updated_at", "2019-10-21 00:35:44.026345"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e4_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["station_id", 980190995], ["user_id", 980190995], ["post_time", "2019-10-20 04:00:00"], ["e4_like", 1], ["image_url", "www.meme4.com"], ["created_at", "2019-10-21 00:35:44.030082"], ["updated_at", "2019-10-21 00:35:44.030082"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 980190993]]
+  [1m[36mMeme Load (0.3ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 ORDER BY e1_like + e2_like + e3_like + e4_like DESC[0m  [["station_id", 980190993]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980191003]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980191004]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980191005]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "memes" WHERE "memes"."id" = $1[0m  [["id", 980191006]]
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190993]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190994]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 980190995]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190993]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190994]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190995]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------
+MemeTest: test_: Meme should require user_id to be set. 
+--------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------------
+MemeTest: test_: Meme should require station_id to be set. 
+-----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------------
+UserTest: test_: User should require fb_access_token to be set. 
+----------------------------------------------------------------
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."fb_access_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------------
+UserTest: test_: User should require first_name to be set. 
+-----------------------------------------------------------
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."fb_access_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+UserTest: test_: User should require last_name to be set. 
+----------------------------------------------------------
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."fb_access_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+UserTest: test_: User should have many memes. 
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------------------------
+UserTest: test_: User should require unique value for fb_access_token. 
+-----------------------------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "mYsTRING"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------------
+UserTest: test_: User should require first_name to be set. 
+-----------------------------------------------------------
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."fb_access_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------------------------
+UserTest: test_: User should require unique value for fb_access_token. 
+-----------------------------------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "mYsTRING"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+UserTest: test_: User should require last_name to be set. 
+----------------------------------------------------------
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."fb_access_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------------
+UserTest: test_: User should require fb_access_token to be set. 
+----------------------------------------------------------------
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."fb_access_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------------------
+UserTest: test_: Within context should name method is working. 
+---------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken111"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken111"], ["first_name", "Roxanne"], ["last_name", "Zhang"], ["created_at", "2019-10-21 00:45:23.576488"], ["updated_at", "2019-10-21 00:45:23.576488"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken222"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken222"], ["first_name", "Cindy"], ["last_name", "Liu"], ["created_at", "2019-10-21 00:45:23.579575"], ["updated_at", "2019-10-21 00:45:23.579575"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken333"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken333"], ["first_name", "Chelsea"], ["last_name", "Cui"], ["created_at", "2019-10-21 00:45:23.582211"], ["updated_at", "2019-10-21 00:45:23.582211"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+UserTest: test_: User should have many memes. 
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+UserTest: test_: User should have many memes. 
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+UserTest: test_: User should require last_name to be set. 
+----------------------------------------------------------
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."fb_access_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------------
+UserTest: test_: User should require first_name to be set. 
+-----------------------------------------------------------
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."fb_access_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------------------
+UserTest: test_: Within context should name method is working. 
+---------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken111"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken111"], ["first_name", "Roxanne"], ["last_name", "Zhang"], ["created_at", "2019-10-21 00:45:30.533026"], ["updated_at", "2019-10-21 00:45:30.533026"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken222"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken222"], ["first_name", "Cindy"], ["last_name", "Liu"], ["created_at", "2019-10-21 00:45:30.537232"], ["updated_at", "2019-10-21 00:45:30.537232"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken333"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken333"], ["first_name", "Chelsea"], ["last_name", "Cui"], ["created_at", "2019-10-21 00:45:30.540621"], ["updated_at", "2019-10-21 00:45:30.540621"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190999]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980191000]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980191001]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------------
+UserTest: test_: User should require fb_access_token to be set. 
+----------------------------------------------------------------
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."fb_access_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------------------------
+UserTest: test_: User should require unique value for fb_access_token. 
+-----------------------------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "mYsTRING"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m

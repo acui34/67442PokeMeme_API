@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  station: one
+  user: one
+  post_time: 2019-10-20 16:55:17
+  e1_like: 1
+  e2_like: 1
+  e3_like: 1
+  e4_like: 1
+  image_url: MyString
+
+two:
+  station: two
+  user: two
+  post_time: 2019-10-20 16:55:17
+  e1_like: 1
+  e2_like: 1
+  e3_like: 1
+  e4_like: 1
+  image_url: MyString
