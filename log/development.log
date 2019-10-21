@@ -216,3 +216,289 @@ No serializer found for resource: #<Meme id: 1, station_id: 1, user_id: 1, post_
 Completed 200 OK in 47ms (Views: 18.4ms | ActiveRecord: 12.2ms)
 
 
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mStation Load (1.4ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStation Load (0.4ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (51.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" GROUP BY "user_id" HAVING (memes.station_id = 1) ORDER BY e1_like + e2_like + e3_like + e4_like LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" GROUP BY "user_id" HAVING (memes.station_id = 1) ORDER BY e1_like + e2_like + e3_like + e4_like LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" GROUP BY users.id HAVING (memes.station_id = 1) ORDER BY e1_like + e2_like + e3_like + e4_like LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (7.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" GROUP BY users.id HAVING (memes.station_id = 1) ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (41.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" GROUP BY users.id LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mStation Load (0.5ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 2) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mStation Load (0.6ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 3) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/" for ::1 at 2019-10-21 12:42:20 -0400
+  [1m[35m (44.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chelsea/.rvm/gems/ruby-2.4.1/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chelsea/.rvm/gems/ruby-2.4.1/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb (4.0ms)
+Completed 200 OK in 39ms (Views: 19.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stations" for ::1 at 2019-10-21 12:42:26 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/stations"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/v1/stations" for ::1 at 2019-10-21 12:42:32 -0400
+Processing by Api::V1::StationsController#index as HTML
+  [1m[36mStation Load (2.4ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 22.9ms)
+
+
+  
+SyntaxError (/Users/chelsea/Desktop/PokeMeme/api/app/serializers/station_serializer.rb:20: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/serializers/station_serializer.rb:20: syntax error, unexpected end-of-input, expecting keyword_end
+app/controllers/api/v1/stations_controller.rb:11:in `index'
+Started GET "/v1/stations" for ::1 at 2019-10-21 12:42:51 -0400
+Processing by Api::V1::StationsController#index as HTML
+  [1m[36mStation Load (0.8ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+[active_model_serializers]   [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.3ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 2) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 2) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.3ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 3) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 3) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.2ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 3]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (72.9ms)
+Completed 200 OK in 108ms (Views: 88.2ms | ActiveRecord: 13.9ms)
+
+
+  [1m[36mMeme Load (0.4ms)[0m  [1m[34mSELECT  "memes".* FROM "memes" WHERE "memes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMeme Load (0.5ms)[0m  [1m[34mSELECT  "memes".* FROM "memes" WHERE "memes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mMeme Load (0.4ms)[0m  [1m[34mSELECT  "memes".* FROM "memes" WHERE "memes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/v1/stations" for ::1 at 2019-10-21 12:45:19 -0400
+  [1m[35m (40.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::StationsController#index as HTML
+  [1m[36mStation Load (0.8ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+[active_model_serializers]   [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.2ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 2) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 2) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.2ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 3) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 3) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.5ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 3]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (76.4ms)
+Completed 200 OK in 135ms (Views: 102.7ms | ActiveRecord: 16.7ms)
+
+
+Started GET "/v1/stations" for ::1 at 2019-10-21 12:48:27 -0400
+Processing by Api::V1::StationsController#index as HTML
+  [1m[36mStation Load (0.8ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.2ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 2) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 2) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.3ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 3) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 3) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.5ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 3]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (68.14ms)
+Completed 200 OK in 95ms (Views: 83.9ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/v1/memes" for ::1 at 2019-10-21 12:48:58 -0400
+Processing by Api::V1::MemesController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.75ms)
+Completed 200 OK in 48ms (Views: 46.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/v1/memes?station_id=1" for ::1 at 2019-10-21 12:49:06 -0400
+Processing by Api::V1::MemesController#index as HTML
+  Parameters: {"station_id"=>"1"}
+  [1m[36mMeme Load (3.2ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 ORDER BY "memes"."post_time" DESC[0m  [["station_id", 1]]
+No serializer found for resource: #<Meme id: 1, station_id: 1, user_id: 1, post_time: "2019-10-20 04:00:00", e1_like: 0, e2_like: 0, e3_like: 0, e4_like: 0, image_url: "www.meme1.com", created_at: "2019-10-21 01:16:48", updated_at: "2019-10-21 01:16:48">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Meme::ActiveRecord_Relation (3.66ms)
+Completed 200 OK in 54ms (Views: 49.5ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/v1/stations" for ::1 at 2019-10-21 12:50:03 -0400
+Processing by Api::V1::StationsController#index as HTML
+  [1m[36mStation Load (0.2ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.2ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 2) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 2) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.3ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 3) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 3) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.8ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 3]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (51.44ms)
+Completed 200 OK in 70ms (Views: 53.2ms | ActiveRecord: 13.2ms)
+
+
+Started GET "/v1/stations" for ::1 at 2019-10-21 12:50:17 -0400
+Processing by Api::V1::StationsController#index as HTML
+  [1m[36mStation Load (0.2ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.3ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 2) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 2) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.3ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 3) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 3) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.3ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 3]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (35.6ms)
+Completed 200 OK in 52ms (Views: 44.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/v1/stations" for ::1 at 2019-10-21 12:50:57 -0400
+Processing by Api::V1::StationsController#index as HTML
+  [1m[36mStation Load (0.6ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.3ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 2) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 2) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.2ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 3) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 3) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.2ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 3]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (39.53ms)
+Completed 200 OK in 63ms (Views: 53.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/v1/stations" for ::1 at 2019-10-21 12:52:05 -0400
+Processing by Api::V1::StationsController#index as HTML
+  [1m[36mStation Load (1.8ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+[active_model_serializers]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.3ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 2) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 2) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.3ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 3) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 3) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.6ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 3]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (47.0ms)
+Completed 200 OK in 65ms (Views: 55.2ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/v1/stations" for ::1 at 2019-10-21 12:53:08 -0400
+Processing by Api::V1::StationsController#index as HTML
+  [1m[36mStation Load (0.7ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.2ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 2) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 2) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.3ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 3) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 3) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mMeme Load (0.2ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1[0m  [["station_id", 3]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (38.07ms)
+Completed 200 OK in 51ms (Views: 44.7ms | ActiveRecord: 3.9ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMeme Load (0.4ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 AND "memes"."user_id" = $2[0m  [["station_id", 1], ["user_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMeme Load (0.3ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 AND "memes"."user_id" = $2[0m  [["station_id", 2], ["user_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMeme Load (0.3ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 AND "memes"."user_id" = $2[0m  [["station_id", 3], ["user_id", 1]]
+  [1m[36mMeme Load (0.2ms)[0m  [1m[34mSELECT  "memes".* FROM "memes" WHERE "memes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMeme Load (0.4ms)[0m  [1m[34mSELECT  "memes".* FROM "memes" WHERE "memes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mMeme Load (0.4ms)[0m  [1m[34mSELECT  "memes".* FROM "memes" WHERE "memes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mMeme Load (0.4ms)[0m  [1m[34mSELECT  "memes".* FROM "memes" WHERE "memes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMeme Load (0.5ms)[0m  [1m[34mSELECT  "memes".* FROM "memes" WHERE "memes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMeme Load (0.5ms)[0m  [1m[34mSELECT  "memes".* FROM "memes" WHERE "memes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMeme Load (0.6ms)[0m  [1m[34mSELECT  "memes".* FROM "memes" WHERE "memes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMeme Load (0.5ms)[0m  [1m[34mSELECT  "memes".* FROM "memes" WHERE "memes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMeme Load (0.3ms)[0m  [1m[34mSELECT  "memes".* FROM "memes" WHERE "memes"."station_id" = $1 AND "memes"."user_id" = $2 LIMIT $3[0m  [["station_id", 1], ["user_id", 1], ["LIMIT", 11]]
+  [1m[36mMeme Load (0.5ms)[0m  [1m[34mSELECT  "memes".* FROM "memes" WHERE "memes"."station_id" = $1 AND "memes"."user_id" = $2 LIMIT $3[0m  [["station_id", 1], ["user_id", 1], ["LIMIT", 11]]
+  [1m[36mMeme Load (0.4ms)[0m  [1m[34mSELECT  "memes".* FROM "memes" WHERE "memes"."station_id" = $1 AND "memes"."user_id" = $2 LIMIT $3[0m  [["station_id", 1], ["user_id", 2], ["LIMIT", 11]]
+  [1m[36mMeme Load (0.5ms)[0m  [1m[34mSELECT  "memes".* FROM "memes" WHERE "memes"."station_id" = $1 AND "memes"."user_id" = $2 LIMIT $3[0m  [["station_id", 1], ["user_id", 2], ["LIMIT", 11]]
+  [1m[36mMeme Load (0.3ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 AND "memes"."user_id" = $2[0m  [["station_id", 1], ["user_id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mMeme Load (0.5ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 AND "memes"."user_id" = $2[0m  [["station_id", 1], ["user_id", 2]]
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStation Load (0.5ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (43.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE "users"."station_id" = $1 ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $2[0m  [["station_id", 1], ["LIMIT", 11]]
+  [1m[36mUser Load (6.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE "users"."station_id" = $1 ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $2[0m  [["station_id", 1], ["LIMIT", 11]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY "users"."id" ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/v1/stations" for ::1 at 2019-10-21 13:23:08 -0400
+  [1m[35m (40.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::StationsController#index as HTML
+  [1m[36mStation Load (42.4ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+[active_model_serializers]   [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY "users"."id" ORDER BY sum(e1_like + e2_like + e3_like + e4_like)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (35.99ms)
+Completed 500 Internal Server Error in 129ms (ActiveRecord: 51.6ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/serializers/station_serializer.rb:11:in `new'
+app/serializers/station_serializer.rb:11:in `block in ranking'
+app/serializers/station_serializer.rb:10:in `ranking'
+app/controllers/api/v1/stations_controller.rb:11:in `index'
+Started GET "/v1/stations" for ::1 at 2019-10-21 13:24:36 -0400
+  [1m[35m (22.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::StationsController#index as HTML
+  [1m[36mStation Load (1.8ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+[active_model_serializers]   [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY "users"."id" ORDER BY sum(e1_like + e2_like + e3_like + e4_like)[0m
+[active_model_serializers]   [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 2) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 2) GROUP BY "users"."id" ORDER BY sum(e1_like + e2_like + e3_like + e4_like)[0m
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 3) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 3) GROUP BY "users"."id" ORDER BY sum(e1_like + e2_like + e3_like + e4_like)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (43.9ms)
+Completed 200 OK in 95ms (Views: 69.9ms | ActiveRecord: 13.6ms)
+
+
+Started GET "/v1/stations/1" for ::1 at 2019-10-21 13:24:39 -0400
+Processing by Api::V1::StationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStation Load (3.6ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY "users"."id" ORDER BY sum(e1_like + e2_like + e3_like + e4_like)[0m
+[active_model_serializers] Rendered StationSerializer with ActiveModelSerializers::Adapter::Attributes (9.53ms)
+Completed 200 OK in 54ms (Views: 5.7ms | ActiveRecord: 23.9ms)
+
+

@@ -5,11 +5,22 @@ class User < ApplicationRecord
   # validation
   validates_presence_of :first_name, :last_name
   validates :fb_access_token, presence: true, uniqueness: { case_sensitive: false }
-  #TODO: finish this sort by total likes
-  #scope :sort_by_total_likes, -> (station_id) { joins(:memes).where(station_id: station_id).order('e1_like + e2_like + e3_like + e4_like DESC') }
+  
+  # scope
+  scope :sort_by_total_likes_at, -> (station_id) { joins(:memes).group(:id).where('memes.station_id = ?', station_id).order('sum(e1_like + e2_like + e3_like + e4_like)') }
 
   def name
     return first_name + " " + last_name
   end
 
+  def total_likes_at(station_id)
+    user_memes = Meme.where(station_id: station_id, user_id: self.id)
+    user_total_likes = 0
+
+    user_memes.each do |meme|
+      user_total_likes = user_total_likes + meme.total_likes
+    end
+    return user_total_likes
+  end
+  
 end
