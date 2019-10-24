@@ -50,7 +50,7 @@ module Api::V1
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.permit(:first_name, :last_name, :fb_access_token)
+      params.permit(:first_name, :last_name, :fb_access_token, :photo)
     end
   end
 end
