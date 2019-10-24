@@ -19,7 +19,6 @@ module Api::V1
   # POST /users
   def create
     @user = User.new(user_params)
-    @user.post_time = Datetime.now
 
     if @user.save
       render json: @user, status: :created, location: @user
@@ -50,7 +49,7 @@ module Api::V1
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.permit(:first_name, :last_name, :fb_access_token)
+      params.permit(:first_name, :last_name, :fb_access_token, :photo)
     end
   end
 end
