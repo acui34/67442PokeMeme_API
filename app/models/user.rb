@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   # relationship
-  mount_uploader :photo, PhotoUploader
+  # mount_uploader :photo, PhotoUploader
   has_many :memes 
 
   # validation

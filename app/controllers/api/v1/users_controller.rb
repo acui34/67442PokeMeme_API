@@ -19,7 +19,6 @@ module Api::V1
   # POST /users
   def create
     @user = User.new(user_params)
-    @user.post_time = Datetime.now
 
     if @user.save
       render json: @user, status: :created, location: @user
