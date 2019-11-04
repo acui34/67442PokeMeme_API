@@ -11,9 +11,9 @@ roxanne = User.create(first_name: "Roxanne", last_name: "Zhang", fb_access_token
 cindy = User.create(first_name: "Cindy", last_name: "Liu", fb_access_token: "fbToken222")    
 chelsea = User.create(first_name: "Chelsea", last_name: "Cui", fb_access_token: "fbToken333")    
 
-inoodle = Station.create(name: "iNoodle", longitude: 40.4433813, latitude: -79.9455855, introduction: "iNoodle aaa bbb cccccc ddd")    
-underground = Station.create(name: "Underground", longitude: 40.4454289, latitude: -79.9431901, introduction: "underground aaa bbb cccccc ddd")    
-hunt = Station.create(name: "Hunt", longitude: 40.4411172, latitude: -79.943736, introduction: "Hunt aaa bbb cccccc ddd")    
+inoodle = Station.create(name: "iNoodle", longitude: -79.9455855, latitude: 40.4433813, introduction: "iNoodle is a really really really really really really really really really really really really really really cool place.")    
+underground = Station.create(name: "Underground", longitude: -79.9431901, latitude: 40.4454289, introduction: "underground is super super awesome.")    
+hunt = Station.create(name: "Hunt", longitude: -79.943736, latitude: 40.4411172, introduction: "Hunt is the evil place.")    
 
 #TODO: change image url after connect to Heroku
 meme1 = Meme.create(station: inoodle, user: roxanne, post_time: DateTime.now.beginning_of_day, image_url: "www.meme1.com")
