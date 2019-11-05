@@ -31,7 +31,7 @@ module Api::V1
       @meme.post_time = Datetime.now
 
       if @meme.save
-        render json: @meme, status: :created, location: @meme
+        render json: "completed" #@meme, status: :created, location: @meme
       else
         render json: @meme.errors, status: :unprocessable_entity
       end
