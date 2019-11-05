@@ -1,6 +1,6 @@
 class Meme < ApplicationRecord
   # relationships
-  mount_uploader :image_url, PhotoUploader
+  #mount_uploader :image_url, PhotoUploader
   belongs_to :station
   belongs_to :user
 
