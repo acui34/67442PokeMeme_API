@@ -28,7 +28,7 @@ module Api::V1
     # POST /memes
     def create
       @meme = Meme.new(meme_params)
-      @meme.post_time = Datetime.now
+      @meme.post_time = DateTime.now
 
       if @meme.save
         render json: "completed" #@meme, status: :created, location: @meme
