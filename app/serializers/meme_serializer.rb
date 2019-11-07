@@ -4,7 +4,12 @@ class MemeSerializer < ActiveModel::Serializer
   def user_name
     object.user.name
   end
+  
   def station
     object.station.name
+  end
+
+  def post_time
+    object.post_time.strftime("%Y-%m-%d %I:%M:%S")
   end
 end
