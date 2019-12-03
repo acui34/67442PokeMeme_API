@@ -15,6 +15,9 @@ module Api::V1
           memes = Meme.sort_by_post_time_desc(params[:station_id])
         end
         render json: memes, status: :ok
+      elsif params[:user_id].present?
+        memes = Meme.by_user(params[:user_id])
+        render json: memes, status: :ok
       else
         render json: {status: "error", code: 3000, message: "No station id provided"}
       end
