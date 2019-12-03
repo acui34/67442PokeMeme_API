@@ -1166,3 +1166,654 @@ Processing by Api::V1::StationsController#index as HTML
 Completed 200 OK in 191ms (Views: 75.0ms | ActiveRecord: 103.2ms)
 
 
+DEPRECATION WARNING: #fog_provider is deprecated and has no effect (called from block in <top (required)> at /Users/chelsea/Desktop/67442PokeMeme_API/config/initializers/carrierwave.rb:3)
+Started GET "/" for ::1 at 2019-11-06 23:06:19 -0500
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chelsea/.rvm/gems/ruby-2.4.1/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chelsea/.rvm/gems/ruby-2.4.1/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb (7.5ms)
+Completed 200 OK in 31ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stations" for ::1 at 2019-11-06 23:06:22 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/stations"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/v1/stations" for ::1 at 2019-11-06 23:06:25 -0500
+Processing by Api::V1::StationsController#index as HTML
+  [1m[36mStation Load (49.4ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+[active_model_serializers]   [1m[36mUser Load (49.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY "users"."id" ORDER BY sum(e1_like + e2_like + e3_like + e4_like)[0m
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 2) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 2) GROUP BY "users"."id" ORDER BY sum(e1_like + e2_like + e3_like + e4_like)[0m
+[active_model_serializers]   [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 3) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 3) GROUP BY "users"."id" ORDER BY sum(e1_like + e2_like + e3_like + e4_like)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (103.15ms)
+Completed 200 OK in 213ms (Views: 85.6ms | ActiveRecord: 114.7ms)
+
+
+Started GET "/v1/memes" for ::1 at 2019-11-06 23:06:28 -0500
+Processing by Api::V1::MemesController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 200 OK in 54ms (Views: 53.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/v1/memes/1" for ::1 at 2019-11-06 23:06:29 -0500
+Processing by Api::V1::MemesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMeme Load (5.9ms)[0m  [1m[34mSELECT  "memes".* FROM "memes" WHERE "memes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mStation Load (39.1ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered MemeSerializer with ActiveModelSerializers::Adapter::Attributes (62.48ms)
+Completed 200 OK in 120ms (Views: 26.4ms | ActiveRecord: 51.3ms)
+
+
+Started GET "/v1/memes/1" for ::1 at 2019-11-06 23:07:27 -0500
+Processing by Api::V1::MemesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMeme Load (0.2ms)[0m  [1m[34mSELECT  "memes".* FROM "memes" WHERE "memes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mStation Load (0.2ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered MemeSerializer with ActiveModelSerializers::Adapter::Attributes (32.44ms)
+Completed 200 OK in 55ms (Views: 25.2ms | ActiveRecord: 12.2ms)
+
+
+DEPRECATION WARNING: #fog_provider is deprecated and has no effect (called from block in <top (required)> at /Users/chelsea/Desktop/67442PokeMeme_API/config/initializers/carrierwave.rb:3)
+Started GET "/" for ::1 at 2019-12-02 18:56:36 -0500
+  
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+):
+  
+pg (1.1.4) lib/pg.rb:56:in `initialize'
+pg (1.1.4) lib/pg.rb:56:in `new'
+pg (1.1.4) lib/pg.rb:56:in `connect'
+activerecord (5.1.7) lib/active_record/connection_adapters/postgresql_adapter.rb:705:in `connect'
+activerecord (5.1.7) lib/active_record/connection_adapters/postgresql_adapter.rb:229:in `initialize'
+activerecord (5.1.7) lib/active_record/connection_adapters/postgresql_adapter.rb:46:in `new'
+activerecord (5.1.7) lib/active_record/connection_adapters/postgresql_adapter.rb:46:in `postgresql_connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:761:in `new_connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:805:in `checkout_new_connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:784:in `try_to_checkout_new_connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:745:in `acquire_connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:502:in `checkout'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:376:in `connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:933:in `retrieve_connection'
+activerecord (5.1.7) lib/active_record/connection_handling.rb:116:in `retrieve_connection'
+activerecord (5.1.7) lib/active_record/connection_handling.rb:88:in `connection'
+activerecord (5.1.7) lib/active_record/migration.rb:562:in `connection'
+activerecord (5.1.7) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.7) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+DEPRECATION WARNING: #fog_provider is deprecated and has no effect (called from block in <top (required)> at /Users/chelsea/Desktop/67442PokeMeme_API/config/initializers/carrierwave.rb:3)
+Started GET "/" for ::1 at 2019-12-02 18:57:41 -0500
+  
+ActiveRecord::NoDatabaseError (FATAL:  database "pokeMeme_api_development" does not exist
+):
+  
+activerecord (5.1.7) lib/active_record/connection_adapters/postgresql_adapter.rb:709:in `rescue in connect'
+activerecord (5.1.7) lib/active_record/connection_adapters/postgresql_adapter.rb:705:in `connect'
+activerecord (5.1.7) lib/active_record/connection_adapters/postgresql_adapter.rb:229:in `initialize'
+activerecord (5.1.7) lib/active_record/connection_adapters/postgresql_adapter.rb:46:in `new'
+activerecord (5.1.7) lib/active_record/connection_adapters/postgresql_adapter.rb:46:in `postgresql_connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:761:in `new_connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:805:in `checkout_new_connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:784:in `try_to_checkout_new_connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:745:in `acquire_connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:502:in `checkout'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:376:in `connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:933:in `retrieve_connection'
+activerecord (5.1.7) lib/active_record/connection_handling.rb:116:in `retrieve_connection'
+activerecord (5.1.7) lib/active_record/connection_handling.rb:88:in `connection'
+activerecord (5.1.7) lib/active_record/migration.rb:562:in `connection'
+activerecord (5.1.7) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.7) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+DEPRECATION WARNING: #fog_provider is deprecated and has no effect (called from block in <top (required)> at /Users/chelsea/Desktop/67442PokeMeme_API/config/initializers/carrierwave.rb:3)
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "memes" CASCADE[0m
+  [1m[35m (12.8ms)[0m  [1m[35mCREATE TABLE "memes" ("id" bigserial primary key, "station_id" bigint, "user_id" bigint, "post_time" timestamp, "e1_like" integer DEFAULT 0, "e2_like" integer DEFAULT 0, "e3_like" integer DEFAULT 0, "e4_like" integer DEFAULT 0, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_memes_on_station_id" ON "memes"  ("station_id")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_memes_on_user_id" ON "memes"  ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "stations" CASCADE[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "stations" ("id" bigserial primary key, "name" character varying, "longitude" float, "latitude" float, "introduction" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "fb_access_token" character varying, "first_name" character varying, "last_name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "photo" character varying)[0m
+  [1m[35m (5.4ms)[0m  [1m[35mALTER TABLE "memes" ADD CONSTRAINT "fk_rails_fe0c1d3c1a"
+FOREIGN KEY ("station_id")
+  REFERENCES "stations" ("id")
+[0m
+  [1m[35m (2.1ms)[0m  [1m[35mALTER TABLE "memes" ADD CONSTRAINT "fk_rails_0dd3229ca9"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20191024133142)[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20191020205309),
+(20191020205517),
+(20191020210038),
+(20191020205056);
+
+[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-12-02 23:58:27.489705"], ["updated_at", "2019-12-02 23:58:27.489705"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "memes" CASCADE[0m
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "memes" ("id" bigserial primary key, "station_id" bigint, "user_id" bigint, "post_time" timestamp, "e1_like" integer DEFAULT 0, "e2_like" integer DEFAULT 0, "e3_like" integer DEFAULT 0, "e4_like" integer DEFAULT 0, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_memes_on_station_id" ON "memes"  ("station_id")[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_memes_on_user_id" ON "memes"  ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "stations" CASCADE[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "stations" ("id" bigserial primary key, "name" character varying, "longitude" float, "latitude" float, "introduction" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "fb_access_token" character varying, "first_name" character varying, "last_name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "photo" character varying)[0m
+  [1m[35m (4.0ms)[0m  [1m[35mALTER TABLE "memes" ADD CONSTRAINT "fk_rails_fe0c1d3c1a"
+FOREIGN KEY ("station_id")
+  REFERENCES "stations" ("id")
+[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "memes" ADD CONSTRAINT "fk_rails_0dd3229ca9"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20191024133142)[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20191020205309),
+(20191020205517),
+(20191020210038),
+(20191020205056);
+
+[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-12-02 23:58:27.587187"], ["updated_at", "2019-12-02 23:58:27.587187"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2019-12-02 23:58:27.591338"], ["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken111"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken111"], ["first_name", "Roxanne"], ["last_name", "Zhang"], ["created_at", "2019-12-02 23:58:27.642625"], ["updated_at", "2019-12-02 23:58:27.642625"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken222"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken222"], ["first_name", "Cindy"], ["last_name", "Liu"], ["created_at", "2019-12-02 23:58:27.645537"], ["updated_at", "2019-12-02 23:58:27.645537"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."fb_access_token") = LOWER($1) LIMIT $2[0m  [["fb_access_token", "fbToken333"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("fb_access_token", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["fb_access_token", "fbToken333"], ["first_name", "Chelsea"], ["last_name", "Cui"], ["created_at", "2019-12-02 23:58:27.648050"], ["updated_at", "2019-12-02 23:58:27.648050"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "iNoodle"], ["longitude", -79.9455855], ["latitude", 40.4433813], ["introduction", "iNoodle is a really really really really really really really really really really really really really really cool place."], ["created_at", "2019-12-02 23:58:27.660130"], ["updated_at", "2019-12-02 23:58:27.660130"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Underground"], ["longitude", -79.9431901], ["latitude", 40.4454289], ["introduction", "underground is super super awesome."], ["created_at", "2019-12-02 23:58:27.662126"], ["updated_at", "2019-12-02 23:58:27.662126"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stations" ("name", "longitude", "latitude", "introduction", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Hunt"], ["longitude", -79.943736], ["latitude", 40.4411172], ["introduction", "Hunt is the evil place."], ["created_at", "2019-12-02 23:58:27.663788"], ["updated_at", "2019-12-02 23:58:27.663788"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["station_id", 1], ["user_id", 1], ["post_time", "2019-12-02 05:00:00"], ["image_url", "www.meme1.com"], ["created_at", "2019-12-02 23:58:27.692853"], ["updated_at", "2019-12-02 23:58:27.692853"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["station_id", 1], ["user_id", 3], ["post_time", "2019-11-22 05:00:00"], ["e1_like", 1], ["e2_like", 1], ["image_url", "www.meme2.com"], ["created_at", "2019-12-02 23:58:27.696226"], ["updated_at", "2019-12-02 23:58:27.696226"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "e1_like", "e2_like", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["station_id", 1], ["user_id", 2], ["post_time", "2019-11-12 05:00:00"], ["e1_like", 3], ["e2_like", 5], ["image_url", "www.meme3.com"], ["created_at", "2019-12-02 23:58:27.698711"], ["updated_at", "2019-12-02 23:58:27.698711"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "memes" ("station_id", "user_id", "post_time", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["station_id", 3], ["user_id", 3], ["post_time", "2019-12-02 05:00:00"], ["image_url", "www.meme4.com"], ["created_at", "2019-12-02 23:58:27.701174"], ["updated_at", "2019-12-02 23:58:27.701174"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+DEPRECATION WARNING: #fog_provider is deprecated and has no effect (called from block in <top (required)> at /Users/chelsea/Desktop/67442PokeMeme_API/config/initializers/carrierwave.rb:3)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1349340823918032855)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1349340823918032855)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: #fog_provider is deprecated and has no effect (called from block in <top (required)> at /Users/chelsea/Desktop/67442PokeMeme_API/config/initializers/carrierwave.rb:3)
+Started GET "/" for ::1 at 2019-12-02 18:58:46 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chelsea/.rvm/gems/ruby-2.4.1/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chelsea/.rvm/gems/ruby-2.4.1/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb (2.7ms)
+Completed 200 OK in 19ms (Views: 7.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/v1/memes" for ::1 at 2019-12-02 18:58:53 -0500
+Processing by Api::V1::MemesController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.97ms)
+Completed 200 OK in 20ms (Views: 19.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/v1/stations" for ::1 at 2019-12-02 18:58:57 -0500
+Processing by Api::V1::StationsController#index as HTML
+  [1m[36mStation Load (0.9ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+[active_model_serializers]   [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 1) GROUP BY "users"."id" ORDER BY sum(e1_like + e2_like + e3_like + e4_like)[0m
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 2) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 2) GROUP BY "users"."id" ORDER BY sum(e1_like + e2_like + e3_like + e4_like)[0m
+[active_model_serializers]   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 3) GROUP BY users.id ORDER BY sum(e1_like + e2_like + e3_like + e4_like) LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "memes" ON "memes"."user_id" = "users"."id" WHERE (memes.station_id = 3) GROUP BY "users"."id" ORDER BY sum(e1_like + e2_like + e3_like + e4_like)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (58.36ms)
+Completed 200 OK in 102ms (Views: 74.2ms | ActiveRecord: 18.7ms)
+
+
+Started GET "/v1/memes?station_id=1" for ::1 at 2019-12-02 19:01:32 -0500
+Processing by Api::V1::MemesController#index as HTML
+  Parameters: {"station_id"=>"1"}
+  [1m[36mMeme Load (1.4ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 ORDER BY "memes"."post_time" DESC[0m  [["station_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE Station Load (0.1ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (24.19ms)
+Completed 200 OK in 51ms (Views: 38.9ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/v1/memes?user_id=1" for ::1 at 2019-12-02 19:01:39 -0500
+Processing by Api::V1::MemesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+Completed 500 Internal Server Error in 157ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `user_id' for #<Api::V1::MemesController:0x007fe7f749fb10>):
+  
+app/controllers/api/v1/memes_controller.rb:19:in `index'
+Started GET "/v1/memes?user_id=1" for ::1 at 2019-12-02 19:02:05 -0500
+Processing by Api::V1::MemesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+Completed 406 Not Acceptable in 59ms (ActiveRecord: 1.7ms)
+
+
+  
+ActionController::UnknownFormat (Api::V1::MemesController#index is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.1.7) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.7) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.7) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.7) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.7) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.7) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.7) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.7) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.7) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.7) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.7) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.7) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.7) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.7) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.7) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.7) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.7) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.7) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.7) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.7) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.7) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:844:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.7) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.7) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/v1/memes?user_id=1" for ::1 at 2019-12-02 19:02:28 -0500
+Processing by Api::V1::MemesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mMeme Load (0.3ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."user_id" = $1 ORDER BY "memes"."post_time" DESC[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (32.15ms)
+Completed 200 OK in 54ms (Views: 35.8ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/v1/memes?user_id=2" for ::1 at 2019-12-02 19:02:31 -0500
+Processing by Api::V1::MemesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mMeme Load (0.9ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."user_id" = $1 ORDER BY "memes"."post_time" DESC[0m  [["user_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.47ms)
+Completed 200 OK in 9ms (Views: 6.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/v1/memes?user_id=3" for ::1 at 2019-12-02 19:02:33 -0500
+Processing by Api::V1::MemesController#index as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mMeme Load (1.0ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."user_id" = $1 ORDER BY "memes"."post_time" DESC[0m  [["user_id", 3]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.16ms)
+Completed 200 OK in 11ms (Views: 7.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/v1/memes?station_id=1" for ::1 at 2019-12-02 19:02:47 -0500
+Processing by Api::V1::MemesController#index as HTML
+  Parameters: {"station_id"=>"1"}
+  [1m[36mMeme Load (0.7ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 ORDER BY "memes"."post_time" DESC[0m  [["station_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mStation Load (0.5ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (9.1ms)
+Completed 200 OK in 14ms (Views: 10.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/v1/memes?station_id=2" for ::1 at 2019-12-02 19:02:50 -0500
+Processing by Api::V1::MemesController#index as HTML
+  Parameters: {"station_id"=>"2"}
+  [1m[36mMeme Load (0.8ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 ORDER BY "memes"."post_time" DESC[0m  [["station_id", 2]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.16ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/v1/memes?station_id=3" for ::1 at 2019-12-02 19:02:52 -0500
+Processing by Api::V1::MemesController#index as HTML
+  Parameters: {"station_id"=>"3"}
+  [1m[36mMeme Load (0.5ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 ORDER BY "memes"."post_time" DESC[0m  [["station_id", 3]]
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mStation Load (0.4ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.49ms)
+Completed 200 OK in 9ms (Views: 6.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/v1/memes?station_id=0" for ::1 at 2019-12-02 19:02:54 -0500
+Processing by Api::V1::MemesController#index as HTML
+  Parameters: {"station_id"=>"0"}
+  [1m[36mMeme Load (0.6ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 ORDER BY "memes"."post_time" DESC[0m  [["station_id", 0]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.07ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/v1/memes?station_id=4" for ::1 at 2019-12-02 19:02:56 -0500
+Processing by Api::V1::MemesController#index as HTML
+  Parameters: {"station_id"=>"4"}
+  [1m[36mMeme Load (0.7ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 ORDER BY "memes"."post_time" DESC[0m  [["station_id", 4]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/v1/memes?station_id=5" for ::1 at 2019-12-02 19:02:58 -0500
+Processing by Api::V1::MemesController#index as HTML
+  Parameters: {"station_id"=>"5"}
+  [1m[36mMeme Load (0.7ms)[0m  [1m[34mSELECT "memes".* FROM "memes" WHERE "memes"."station_id" = $1 ORDER BY "memes"."post_time" DESC[0m  [["station_id", 5]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.09ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.7ms)
+
+
+DEPRECATION WARNING: #fog_provider is deprecated and has no effect (called from block in <top (required)> at /Users/chelsea/Desktop/67442PokeMeme_API/config/initializers/carrierwave.rb:3)
+Started GET "/" for ::1 at 2019-12-03 16:42:57 -0500
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chelsea/.rvm/gems/ruby-2.4.1/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chelsea/.rvm/gems/ruby-2.4.1/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb (2.9ms)
+Completed 200 OK in 18ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/v1/memes" for ::1 at 2019-12-03 16:43:01 -0500
+Processing by Api::V1::MemesController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.63ms)
+Completed 200 OK in 25ms (Views: 23.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/v1/memes/100" for ::1 at 2019-12-03 16:43:08 -0500
+Processing by Api::V1::MemesController#show as HTML
+  Parameters: {"id"=>"100"}
+  [1m[36mMeme Load (3.6ms)[0m  [1m[34mSELECT  "memes".* FROM "memes" WHERE "memes"."id" = $1 LIMIT $2[0m  [["id", 100], ["LIMIT", 1]]
+Completed 404 Not Found in 50ms (ActiveRecord: 27.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Meme with 'id'=100):
+  
+app/controllers/api/v1/memes_controller.rb:60:in `set_meme'
+Started GET "/v1/memes/80" for ::1 at 2019-12-03 16:43:12 -0500
+Processing by Api::V1::MemesController#show as HTML
+  Parameters: {"id"=>"80"}
+  [1m[36mMeme Load (0.6ms)[0m  [1m[34mSELECT  "memes".* FROM "memes" WHERE "memes"."id" = $1 LIMIT $2[0m  [["id", 80], ["LIMIT", 1]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Meme with 'id'=80):
+  
+app/controllers/api/v1/memes_controller.rb:60:in `set_meme'
+Started GET "/v1/memes/1" for ::1 at 2019-12-03 16:43:15 -0500
+Processing by Api::V1::MemesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMeme Load (1.4ms)[0m  [1m[34mSELECT  "memes".* FROM "memes" WHERE "memes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mStation Load (2.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered MemeSerializer with ActiveModelSerializers::Adapter::Attributes (64.56ms)
+Completed 200 OK in 113ms (Views: 79.4ms | ActiveRecord: 13.5ms)
+
+
+Started GET "/v1/memes/2" for ::1 at 2019-12-03 16:43:24 -0500
+Processing by Api::V1::MemesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMeme Load (0.6ms)[0m  [1m[34mSELECT  "memes".* FROM "memes" WHERE "memes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mStation Load (0.9ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered MemeSerializer with ActiveModelSerializers::Adapter::Attributes (6.6ms)
+Completed 200 OK in 12ms (Views: 6.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/v1/memes/1" for ::1 at 2019-12-03 16:43:30 -0500
+Processing by Api::V1::MemesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMeme Load (0.3ms)[0m  [1m[34mSELECT  "memes".* FROM "memes" WHERE "memes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mStation Load (0.5ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered MemeSerializer with ActiveModelSerializers::Adapter::Attributes (5.31ms)
+Completed 200 OK in 8ms (Views: 4.9ms | ActiveRecord: 1.5ms)
+
+
+DEPRECATION WARNING: #fog_provider is deprecated and has no effect (called from block in <top (required)> at /Users/chelsea/Desktop/67442PokeMeme_API/config/initializers/carrierwave.rb:3)
+DEPRECATION WARNING: #fog_provider is deprecated and has no effect (called from block in <top (required)> at /Users/chelsea/Desktop/67442PokeMeme_API/config/initializers/carrierwave.rb:3)
+Started GET "/" for ::1 at 2019-12-03 16:49:58 -0500
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chelsea/.rvm/gems/ruby-2.4.1/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chelsea/.rvm/gems/ruby-2.4.1/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb (3.2ms)
+Completed 200 OK in 20ms (Views: 11.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/memes" for ::1 at 2019-12-03 16:50:02 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/memes"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/v1/memes" for ::1 at 2019-12-03 16:50:06 -0500
+Processing by Api::V1::MemesController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.51ms)
+Completed 200 OK in 36ms (Views: 35.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/v1/memes/1" for ::1 at 2019-12-03 16:50:08 -0500
+Processing by Api::V1::MemesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMeme Load (0.6ms)[0m  [1m[34mSELECT  "memes".* FROM "memes" WHERE "memes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mStation Load (0.7ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered MemeSerializer with ActiveModelSerializers::Adapter::Attributes (57.33ms)
+Completed 200 OK in 125ms (Views: 71.0ms | ActiveRecord: 20.8ms)
+
+

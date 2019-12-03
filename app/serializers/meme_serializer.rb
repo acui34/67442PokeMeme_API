@@ -10,6 +10,6 @@ class MemeSerializer < ActiveModel::Serializer
   end
 
   def post_time
-    object.post_time.in_time_zone('US/Eastern').strftime("%Y-%m-%d %I:%M:%S")
+    object.post_time.in_time_zone('US/Eastern').strftime("%H-%m-%d %:%M:%S")
   end
 end
