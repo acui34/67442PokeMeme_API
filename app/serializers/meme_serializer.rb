@@ -10,6 +10,6 @@ class MemeSerializer < ActiveModel::Serializer
   end
 
   def post_time
-    object.post_time.strftime("%Y-%m-%d %I:%M:%S")
+    object.post_time.localtime.strftime("%Y-%m-%d %I:%M:%S")
   end
 end
