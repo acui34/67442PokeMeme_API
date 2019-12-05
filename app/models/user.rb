@@ -9,6 +9,7 @@ class User < ApplicationRecord
   
   # scope
   scope :sort_by_total_likes_at, -> (station_id) { joins(:memes).group(:id).where('memes.station_id = ?', station_id).order('sum(e1_like + e2_like + e3_like + e4_like)') }
+  scope :by_token, -> (token) { where(fb_access_token: token)}
 
   def name
     return first_name + " " + last_name

@@ -6,8 +6,12 @@ module Api::V1
 
   # GET /users
   def index
-    @users = User.all
-
+   
+    if params[:token].present?
+      @users = User.by_token(params[:token])
+    else
+      @users = User.all
+    end
     render json: @users
   end
 
