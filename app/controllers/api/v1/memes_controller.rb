@@ -19,7 +19,7 @@ module Api::V1
         if params[:order_by] == "asc"
           memes = Meme.by_user(params[:user_id]).sort_by_post_time_asc
         elsif params[:order_by] == "like"
-          memes = Meme.by_user(params[:user_id]).sort_by_post_time_likes
+          memes = Meme.by_user(params[:user_id]).sort_by_total_likes
         else
           memes = Meme.by_user(params[:user_id]).sort_by_post_time_desc
         end
