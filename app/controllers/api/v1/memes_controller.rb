@@ -8,15 +8,21 @@ module Api::V1
     def index
       if params[:station_id].present?
         if params[:order_by] == "asc"
-          memes = Meme.sort_by_post_time_asc(params[:station_id])
+          memes = Meme.by_station(params[:station_id]).sort_by_post_time_asc
         elsif params[:order_by] == "like"
-          memes = Meme.sort_by_total_likes(params[:station_id])
+          memes = Meme.by_station(params[:station_id]).sort_by_total_likes
         else
-          memes = Meme.sort_by_post_time_desc(params[:station_id])
+          memes = Meme.by_station(params[:station_id]).sort_by_post_time_desc
         end
         render json: memes, status: :ok
       elsif params[:user_id].present?
-        memes = Meme.by_user(params[:user_id])
+        if params[:order_by] == "asc"
+          memes = Meme.by_user(params[:user_id]).sort_by_post_time_asc
+        elsif params[:order_by] == "like"
+          memes = Meme.by_user(params[:user_id]).sort_by_post_time_likes
+        else
+          memes = Meme.by_user(params[:user_id]).sort_by_post_time_desc
+        end
         render json: memes, status: :ok
       else
         render json: {status: "error", code: 3000, message: "No station id provided"}
