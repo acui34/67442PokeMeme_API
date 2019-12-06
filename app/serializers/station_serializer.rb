@@ -7,9 +7,11 @@ class StationSerializer < ActiveModel::Serializer
 
   def ranking
     users = User.sort_by_total_likes_at(object.id)
+    rank = Array.new
     users.each do |user|
-      RankUserSerializer.new(user, station_id: object.id)
+      rank.push(RankUserSerializer.new(user, station_id: object.id))
     end
+    return rank
   end
 
 end
