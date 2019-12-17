@@ -6,7 +6,7 @@ This is the internal API for Carnegie Mellon Fall19 67-442 iOS Team Project - Po
 
 Team Members: Chelsea Cui, Roxanne Zhang, Cindy Liu
 
-iOS App Folder (on going): https://github.com/acui34/67442PokeMeme
+iOS App Folder: https://github.com/yjtheone/Meme
 
 Database ERD:
 
